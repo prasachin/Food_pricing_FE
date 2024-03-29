@@ -23,6 +23,10 @@ function App() {
       });
 
       setTotalPrice(response.data.total_price);
+      setZone("");
+      setItemType("");
+      setOrganizationId("");
+      setTotalDistance("");
     } catch (error) {
       console.error("Error calculating price:", error);
     }
@@ -32,16 +36,16 @@ function App() {
     <Container>
       <h1 className="mt-5 mb-3">Food Delivery App</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="zone">
+        <Form.Group controlId="zone" style={{ marginBottom: "30px" }}>
           <Form.Label>Zone:</Form.Label>
           <Form.Control
             type="text"
             value={zone}
-            onChange={(e) => setZone(e.target.value)}
+            onChange={(e) => setZone(e.target.value)} 
             placeholder="Enter zone"
           />
         </Form.Group>
-        <Form.Group controlId="organizationId">
+        <Form.Group controlId="organizationId" style={{ marginBottom: "30px" }}>
           <Form.Label>Organization ID:</Form.Label>
           <Form.Control
             type="text"
@@ -50,7 +54,7 @@ function App() {
             placeholder="Enter organization ID"
           />
         </Form.Group>
-        <Form.Group controlId="totalDistance">
+        <Form.Group controlId="totalDistance" style={{ marginBottom: "30px" }}>
           <Form.Label>Total Distance (km):</Form.Label>
           <Form.Control
             type="number"
@@ -59,7 +63,7 @@ function App() {
             placeholder="Enter total distance"
           />
         </Form.Group>
-        <Form.Group controlId="itemType">
+        <Form.Group controlId="itemType" style={{ marginBottom: "30px" }}>
           <Form.Label>Item Type:</Form.Label>
           <Form.Control
             as="select"
@@ -74,7 +78,7 @@ function App() {
           Calculate Price
         </Button>
       </Form>
-      {totalPrice && <p className="mt-3">Total Price: {totalPrice}</p>}
+      {totalPrice && <h1 className="mt-3">Total Price: {totalPrice}</h1>}
     </Container>
   );
 }
